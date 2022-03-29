@@ -1,16 +1,18 @@
 import os
-import numpy as np
-import pandas as pd
-import pickle
-import law_dict as l
-import sklearn.utils
-from sklearn.cluster import MiniBatchKMeans
-from sklearn.feature_extraction.text import TfidfVectorizer
+# import numpy as np
+# import pandas as pd
+# import pickle
+import joblib
+# import law_dict as l
+# import sklearn.utils
+# from sklearn.cluster import MiniBatchKMeans
+# from sklearn.feature_extraction.text import TfidfVectorizer
 from uuid import uuid4
 from flask import Flask, request, render_template, send_from_directory
 
 app = Flask(__name__)
-class_model = pickle.load(open('model.pkl', 'rb'))
+# class_model = pickle.load(open('model.pkl', 'rb'))
+class_model = joblib.load('model.pkl')
 
 # def get_keywords(data, clusters, labels, n_terms):
 #     df = pd.DataFrame(data.todense()).groupby(clusters).mean()
