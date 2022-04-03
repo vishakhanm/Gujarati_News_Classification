@@ -32,7 +32,7 @@ def index():
 def classify():
     output = []
     newd = request.form['text']
-    output = class_model.predict(newd)
+    output = class_model.predict([newd])
     # new_data = pd.DataFrame({"contents": newd }, index =[0])
 
     # new_tfidf = TfidfVectorizer(
@@ -62,7 +62,7 @@ def classify():
     # else:
     #     return render_template('index.html', prediction_text= ', '.join(output), data = newd)
 
-    return render_template('index.html', prediction_text= ', '.join(output[0]), data = newd)
+    return render_template('index.html', prediction_text= output[0], data = newd)
 
 
 
